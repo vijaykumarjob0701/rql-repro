@@ -17,3 +17,6 @@ results/e2e/
 *.npz.gz
 !datasets/synthetic/fixtures/tiny/
 !datasets/synthetic/fixtures/tiny/**
+
+# SIFT1M / large dataset cache (binaries + local SHA256SUMS)
+datasets/cache/

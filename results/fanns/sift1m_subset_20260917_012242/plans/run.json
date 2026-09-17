@@ -1,0 +1,21 @@
+{
+  "command": "python code/bench/fanns_sift1m_microbench.py",
+  "seed": 42,
+  "n": 100000,
+  "d": 128,
+  "n_queries": 100,
+  "k": 10,
+  "selectivities": [
+    0.01,
+    0.05,
+    0.1,
+    0.5
+  ],
+  "modes": [
+    "PRE",
+    "POST"
+  ],
+  "post_candidate_mult": 50,
+  "label": "subset smoke (n=100000, nq=100) \u2014 not full P0",
+  "dataset": "SIFT1M subset first 100000 of base + first 100 queries; d=128; mirror=HF qbo-odp/sift1m"
+}

@@ -1,0 +1,21 @@
+{
+  "command": "python code/bench/fanns_sift1m_microbench.py",
+  "seed": 42,
+  "n": 1000000,
+  "d": 128,
+  "n_queries": 100,
+  "k": 10,
+  "selectivities": [
+    0.01,
+    0.05,
+    0.1,
+    0.5
+  ],
+  "modes": [
+    "PRE",
+    "POST"
+  ],
+  "post_candidate_mult": 50,
+  "label": "full SIFT1M (n=1000000, nq=100) \u2014 microbench",
+  "dataset": "SIFT1M full base N=1000000 + first 100 queries; d=128; mirror=HF qbo-odp/sift1m"
+}
