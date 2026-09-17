@@ -1,0 +1,80 @@
+{
+  "run_id": "colab_synth_large_20260917_001447",
+  "label": "colab_synthetic_large (fallback, not SIFT1M)",
+  "dataset": "synthetic Gaussian N=200000 d=128",
+  "rows": [
+    {
+      "selectivity": 0.01,
+      "mode": "PRE",
+      "recall_at_10": 1.0,
+      "latency_p50_ms": 0.0979,
+      "latency_p95_ms": 0.1166,
+      "qps": 9714.0617,
+      "n_queries": 100
+    },
+    {
+      "selectivity": 0.01,
+      "mode": "POST",
+      "recall_at_10": 1.0,
+      "latency_p50_ms": 11.441,
+      "latency_p95_ms": 13.5689,
+      "qps": 85.141,
+      "n_queries": 100
+    },
+    {
+      "selectivity": 0.05,
+      "mode": "PRE",
+      "recall_at_10": 1.0,
+      "latency_p50_ms": 0.3531,
+      "latency_p95_ms": 0.3836,
+      "qps": 2826.2415,
+      "n_queries": 100
+    },
+    {
+      "selectivity": 0.05,
+      "mode": "POST",
+      "recall_at_10": 1.0,
+      "latency_p50_ms": 10.5891,
+      "latency_p95_ms": 12.7011,
+      "qps": 92.1731,
+      "n_queries": 100
+    },
+    {
+      "selectivity": 0.1,
+      "mode": "PRE",
+      "recall_at_10": 1.0,
+      "latency_p50_ms": 0.6412,
+      "latency_p95_ms": 2.6532,
+      "qps": 1169.0924,
+      "n_queries": 100
+    },
+    {
+      "selectivity": 0.1,
+      "mode": "POST",
+      "recall_at_10": 1.0,
+      "latency_p50_ms": 10.6809,
+      "latency_p95_ms": 12.4783,
+      "qps": 91.749,
+      "n_queries": 100
+    },
+    {
+      "selectivity": 0.5,
+      "mode": "PRE",
+      "recall_at_10": 1.0,
+      "latency_p50_ms": 5.7387,
+      "latency_p95_ms": 7.9386,
+      "qps": 165.4225,
+      "n_queries": 100
+    },
+    {
+      "selectivity": 0.5,
+      "mode": "POST",
+      "recall_at_10": 1.0,
+      "latency_p50_ms": 12.3724,
+      "latency_p95_ms": 14.9413,
+      "qps": 78.6719,
+      "n_queries": 100
+    }
+  ],
+  "source": "INRIA/TexMex SIFT1M URL=https://corpus-texmex.irisa.fr/sift.tar.gz; archive attempt above; synthetic fallback, no SIFT claims"
+}
