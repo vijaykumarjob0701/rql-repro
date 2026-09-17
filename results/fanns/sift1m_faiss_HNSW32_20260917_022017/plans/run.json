@@ -1,0 +1,28 @@
+{
+  "command": "python code/bench/fanns_sift1m_faiss_microbench.py",
+  "seed": 42,
+  "n": 1000000,
+  "d": 128,
+  "n_queries": 1000,
+  "k": 10,
+  "selectivities": [
+    0.01,
+    0.05,
+    0.1,
+    0.5
+  ],
+  "modes": [
+    "PRE",
+    "POST"
+  ],
+  "index": "HNSW32",
+  "M": 32,
+  "efConstruction": 200,
+  "efSearch": 64,
+  "post_candidate_mult": 50,
+  "gt_method": "IndexFlatL2 + IDSelectorBitmap",
+  "pre_method": "SearchParametersHNSW + IDSelectorBitmap",
+  "post_method": "HNSW top-(k*mult) then filter (no exact pad)",
+  "predicate": "Bernoulli seed=42",
+  "why_hnsw": "HNSW32 chosen over IVF4096,Flat: no train/nprobe tuning; graph family matches filtered-ANN literature; IDSelectorBitmap PRE is first-class; efSearch is the depth knob."
+}

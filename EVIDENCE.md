@@ -13,7 +13,7 @@
 | Unit / smoke result text | `experiments/results/...` | Small copies in `results/fixtures/` |
 | Colab notebook + Drive link | `experiments/colab/` | **Copied** under `colab/` |
 | Dataset binaries | Must not live in git | Must not live in git; registry + scripts here |
-| P0 FANNS w/ GT | SIFT1M cached + digests filled; subset+full NumPy microbench | `datasets/REGISTRY.md`, `code/bench/fanns_sift1m_microbench.py`, `results/fanns/sift1m_*` |
+| P0 FANNS w/ GT | SIFT1M cached + digests; NumPy plumbing + **FAISS HNSW32** PRE/POST | `code/bench/fanns_sift1m_faiss_microbench.py`, `results/fanns/sift1m_faiss_HNSW32_20260917_022017/` |
 | Live adapter / RAG judgments | Missing | Missing (same gaps) |
 | Pinned `requirements.txt` | Missing at experiments root | **Present** (root) |
 
@@ -21,14 +21,15 @@
 
 - Runnable offline package + `requirements.txt` / `pyproject.toml`
 - `datasets/REGISTRY.md` + `download_sift1m.sh` (HF→FTP); **SHA-256 digests filled 2026-09-17**
-- `code/bench/fanns_sift1m_microbench.py` + `results/fanns/sift1m_{subset,full}_*`
+- `code/bench/fanns_sift1m_microbench.py` + `fanns_sift1m_faiss_microbench.py`
+- `results/fanns/sift1m_{subset,full}_*` + `sift1m_faiss_HNSW32_20260917_022017/`
 - `datasets/synthetic/` generator + tiny committed fixtures
 - `results/fixtures/` smoke summaries (text/JSON only)
 - `colab/` notebook + `LINKS.md`
 
 ## Still incomplete for venue-grade (same as research)
 
-- Venue-grade FANNS with FAISS/HNSW (or similar) + candidate-depth sweeps (NumPy PRE/POST microbench on SIFT1M subset/full is plumbing, not citation-ready alone)
+- Full candidate-depth / multi-index sweeps (FAISS HNSW32 single-setting curves now present — journal 0038; still not ACORN-class)
 - Live adapter smokes
 - RAG judgments
 
