@@ -1,0 +1,26 @@
+RQL E2E pipeline (Hypothesis; offline; notExecuted)
+run_id: smoke
+run_dir: experiments/results/e2e/smoke
+inputs: examples/toy
+profiles: ['qdrant', 'elasticsearch', 'pgvector']
+rql_files: ['01-hybrid-rrf.rql', '02-filtered-dense.rql', '03-late.rql', '04-hybrid-linear.rql']
+validate: True
+timestamp: 2026-09-17T00:10:55+01:00
+
+OK: 01-hybrid-rrf@qdrant → root.op=FusionExec vendor=qdrant emit=json
+OK: 01-hybrid-rrf@elasticsearch → root.op=FusionExec vendor=elasticsearch emit=json
+OK: 01-hybrid-rrf@pgvector → root.op=ShimCast vendor=pgvector emit=sql
+OK: 02-filtered-dense@qdrant → root.op=FilterExec vendor=qdrant emit=json
+OK: 02-filtered-dense@elasticsearch → root.op=FilterExec vendor=elasticsearch emit=json
+OK: 02-filtered-dense@pgvector → root.op=FilterExec vendor=pgvector emit=sql
+OK: 03-late@qdrant → root.op=LateInteractExec vendor=qdrant emit=json
+OK: 03-late@elasticsearch → root.op=LateInteractExec vendor=elasticsearch emit=json
+OK: 03-late@pgvector → root.op=LateInteractExec vendor=pgvector emit=sql
+OK: 04-hybrid-linear@qdrant → root.op=FilterExec vendor=qdrant emit=json
+OK: 04-hybrid-linear@elasticsearch → root.op=FilterExec vendor=elasticsearch emit=json
+OK: 04-hybrid-linear@pgvector → root.op=FilterExec vendor=pgvector emit=sql
+
+RESULT: ok=12/12
+schema_validate: enabled (LogicalPlan + PhysicalPlan 0.1.0-draft)
+live_db: false
+notExecuted: true

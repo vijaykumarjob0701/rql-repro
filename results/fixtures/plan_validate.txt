@@ -1,0 +1,21 @@
+LogicalPlan → PhysicalPlan planner stub (Hypothesis)
+logical_dir: /workspace/rag-vector-query-lang/experiments/results/rql_parser
+profiles: ['qdrant', 'elasticsearch', 'pgvector']
+bundled_profiles: ['elasticsearch', 'pgvector', 'qdrant']
+n_logical: 4
+
+OK: 01-hybrid-rrf.logical.json + qdrant → 01-hybrid-rrf.qdrant.physical.json (root.op=FusionExec)
+OK: 01-hybrid-rrf.logical.json + elasticsearch → 01-hybrid-rrf.elasticsearch.physical.json (root.op=FusionExec)
+OK: 01-hybrid-rrf.logical.json + pgvector → 01-hybrid-rrf.pgvector.physical.json (root.op=ShimCast)
+OK: 02-filtered-dense.logical.json + qdrant → 02-filtered-dense.qdrant.physical.json (root.op=FilterExec)
+OK: 02-filtered-dense.logical.json + elasticsearch → 02-filtered-dense.elasticsearch.physical.json (root.op=FilterExec)
+OK: 02-filtered-dense.logical.json + pgvector → 02-filtered-dense.pgvector.physical.json (root.op=FilterExec)
+OK: 03-late.logical.json + qdrant → 03-late.qdrant.physical.json (root.op=LateInteractExec)
+OK: 03-late.logical.json + elasticsearch → 03-late.elasticsearch.physical.json (root.op=LateInteractExec)
+OK: 03-late.logical.json + pgvector → 03-late.pgvector.physical.json (root.op=LateInteractExec)
+OK: 04-hybrid-linear.logical.json + qdrant → 04-hybrid-linear.qdrant.physical.json (root.op=FilterExec)
+OK: 04-hybrid-linear.logical.json + elasticsearch → 04-hybrid-linear.elasticsearch.physical.json (root.op=FilterExec)
+OK: 04-hybrid-linear.logical.json + pgvector → 04-hybrid-linear.pgvector.physical.json (root.op=FilterExec)
+OK: filter_mode acl heuristics (pgvector=ITERATIVE, qdrant=PRE)
+
+RESULT: plan_ok=12/12 validate_ok=12/12 assertions=OK

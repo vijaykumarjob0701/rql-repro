@@ -1,0 +1,19 @@
+__pycache__/
+*.pyc
+.venv/
+venv/
+.pytest_cache/
+*.egg-info/
+dist/
+build/
+datasets/data/
+results/scratch/
+results/e2e/
+.DS_Store
+
+# Large arrays elsewhere — keep only tiny committed fixtures
+*.npy
+*.npz
+*.npz.gz
+!datasets/synthetic/fixtures/tiny/
+!datasets/synthetic/fixtures/tiny/**

@@ -1,0 +1,16 @@
+PhysicalPlan → vendor emit stub (Hypothesis sketches; notExecuted)
+physical_dir: /workspace/rag-vector-query-lang/experiments/results/rql_planner
+vendors: ['qdrant', 'elasticsearch', 'pgvector']
+stems: ['01-hybrid-rrf', '02-filtered-dense']
+profiles: ['qdrant', 'elasticsearch', 'pgvector']
+
+OK: 01-hybrid-rrf@qdrant format=json files=['01-hybrid-rrf.qdrant.emit.json']
+OK: 01-hybrid-rrf@elasticsearch format=json files=['01-hybrid-rrf.elasticsearch.emit.json']
+OK: 01-hybrid-rrf@pgvector format=sql files=['01-hybrid-rrf.pgvector.emit.json', '01-hybrid-rrf.pgvector.request.sql']
+OK: 02-filtered-dense@qdrant format=json files=['02-filtered-dense.qdrant.emit.json']
+OK: 02-filtered-dense@elasticsearch format=json files=['02-filtered-dense.elasticsearch.emit.json']
+OK: 02-filtered-dense@pgvector format=sql files=['02-filtered-dense.pgvector.emit.json', '02-filtered-dense.pgvector.request.sql']
+
+emit_ok: 6/6
+assertions_ok: True
+PASS

@@ -1,0 +1,35 @@
+{
+  "schemaVersion": "0.1.0-draft",
+  "kind": "PhysicalPlan",
+  "meta": {
+    "label": "Hypothesis",
+    "notes": "MUVERA ladder bottom: FDE AnnExec then LateInteractExec muvera (MaxSim/Chamfer rerank). Mechanism Established (MUVERA); packaging Hypothesis."
+  },
+  "budgets": {
+    "recallTarget": 0.9,
+    "latencyMs": { "p95": 150 }
+  },
+  "capabilitiesUsed": {
+    "fdeMips": true,
+    "multiVectorLate": false
+  },
+  "root": {
+    "id": "muvera0",
+    "op": "LateInteractExec",
+    "variant": "muvera",
+    "k": 10,
+    "candidateDepth": 200,
+    "queryRef": "$q_fde",
+    "collection": "passages_fde",
+    "input": {
+      "id": "fde_ann",
+      "op": "AnnExec",
+      "k": 200,
+      "index": "ivf",
+      "nprobe": 32,
+      "metric": "ip",
+      "queryRef": "$q_fde",
+      "collection": "passages_fde"
+    }
+  }
+}

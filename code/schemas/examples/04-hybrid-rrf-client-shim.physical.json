@@ -1,0 +1,50 @@
+{
+  "schemaVersion": "0.1.0-draft",
+  "kind": "PhysicalPlan",
+  "meta": {
+    "label": "Hypothesis",
+    "logicalPlanRef": "examples/01-hybrid-rrf.logical.json",
+    "notes": "pgvector-style path: no native RRF → explicit ShimCast client_rrf (expensive; ACL-safe only if filters already applied server-side)."
+  },
+  "budgets": {
+    "aclSafe": true
+  },
+  "capabilitiesUsed": {
+    "rrfNative": false,
+    "filterAnnComposition": ["POST", "ITERATIVE"],
+    "explainNative": true,
+    "vendorHints": ["pgvector"]
+  },
+  "root": {
+    "id": "shim_rrf",
+    "op": "ShimCast",
+    "shim": "client_rrf",
+    "expensive": true,
+    "aclUnsafe": false,
+    "input": {
+      "id": "fuse_logical_equiv",
+      "op": "FusionExec",
+      "family": "rrf",
+      "k_rrf": 60,
+      "native": false,
+      "inputs": [
+        {
+          "id": "ann0",
+          "op": "AnnExec",
+          "k": 50,
+          "index": "hnsw",
+          "metric": "cosine",
+          "queryRef": "$q_dense",
+          "collection": "chunks"
+        },
+        {
+          "id": "bm25e0",
+          "op": "Bm25Exec",
+          "k": 50,
+          "queryText": "portable retrieval IR for RAG",
+          "collection": "chunks"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "schemaVersion": "0.1.0-draft",
+  "kind": "PhysicalPlan",
+  "meta": {
+    "label": "Hypothesis",
+    "logicalPlanRef": "examples/03-late-plaid-rewrite.logical.json",
+    "notes": "LateInteractExec variant=plaid (centroid interaction + multi-stage prune). Do not silently substitute dense cosine."
+  },
+  "budgets": {
+    "latencyMs": { "p95": 120 },
+    "aclSafe": true
+  },
+  "capabilitiesUsed": {
+    "multiVectorLate": false,
+    "latePlaid": true
+  },
+  "root": {
+    "id": "late_plaid0",
+    "op": "LateInteractExec",
+    "variant": "plaid",
+    "k": 10,
+    "candidateDepth": 1000,
+    "queryRef": "$q_tok",
+    "collection": "passages_mv"
+  }
+}

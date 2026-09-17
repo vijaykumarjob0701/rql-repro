@@ -1,0 +1,15 @@
+cff-version: 1.2.0
+title: "rql-repro — companion reproducibility package for RQL"
+message: "If you use this software, please cite both the research report and this companion repo."
+type: software
+authors:
+  - family-names: Kumar
+    given-names: Vijay
+date-released: "2026-09-17"
+license: MIT
+repository-code: "https://github.com/vijaykumarjob0701/rql-repro"
+url: "https://github.com/vijaykumarjob0701/rql-repro"
+references:
+  - type: software
+    title: "RQL — RAG / vector query language (research narrative)"
+    repository-code: "https://github.com/vijaykumarjob0701/rql-rag-query-language"

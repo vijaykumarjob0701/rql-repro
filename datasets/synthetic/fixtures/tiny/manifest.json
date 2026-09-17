@@ -1,0 +1,15 @@
+{
+  "kind": "synthetic_gaussian",
+  "n": 128,
+  "d": 8,
+  "nq": 8,
+  "seed": 42,
+  "dtype": "float32",
+  "files": [
+    "base_n128_d8_s42.npy",
+    "query_nq8_d8_s42.npy",
+    "base_n128_d8_s42.npz.gz",
+    "query_nq8_d8_s42.npz.gz"
+  ],
+  "not_p0": true
+}

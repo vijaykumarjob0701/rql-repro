@@ -1,0 +1,38 @@
+{
+  "schemaVersion": "0.1.0-draft",
+  "kind": "PhysicalPlan",
+  "meta": {
+    "label": "Hypothesis",
+    "logicalPlanRef": "examples/02-filtered-dense.logical.json",
+    "notes": "AUTO chooses among advertised FilterExec modes; ACL hard constraint preserved."
+  },
+  "budgets": {
+    "recallTarget": 0.95,
+    "latencyMs": { "p50": 20, "p95": 60 },
+    "aclSafe": true
+  },
+  "capabilitiesUsed": {
+    "filterAnnComposition": ["PRE", "POST", "ITERATIVE"],
+    "vendorHints": ["pgvector"]
+  },
+  "root": {
+    "id": "fexec0",
+    "op": "FilterExec",
+    "mode": "AUTO",
+    "pruningStrategy": "unknown",
+    "predicate": {
+      "expr": "tenant_id = 'acme' AND clearance >= 2",
+      "aclHard": true
+    },
+    "input": {
+      "id": "ann0",
+      "op": "AnnExec",
+      "k": 20,
+      "index": "hnsw",
+      "efSearch": 100,
+      "metric": "cosine",
+      "queryRef": "$q_dense",
+      "collection": "chunks"
+    }
+  }
+}

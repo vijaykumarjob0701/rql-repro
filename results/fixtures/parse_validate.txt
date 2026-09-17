@@ -1,0 +1,11 @@
+Toy RQL parser → LogicalPlan (Hypothesis subset)
+examples_dir: /workspace/rag-vector-query-lang/schemas/examples
+n_rql_files: 4
+
+OK: 01-hybrid-rrf.rql → 01-hybrid-rrf.logical.json (root.op=Fuse_rrf)
+OK: 02-filtered-dense.rql → 02-filtered-dense.logical.json (root.op=Filter)
+OK: 03-late.rql → 03-late.logical.json (root.op=Search_late)
+OK: 04-hybrid-linear.rql → 04-hybrid-linear.logical.json (root.op=Filter)
+
+RESULT: parse_ok=4/4 validate_ok=4/4
+OK: unsupported EMBED rejected (ParseError)

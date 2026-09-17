@@ -1,0 +1,35 @@
+{
+  "schemaVersion": "0.1.0-draft",
+  "kind": "LogicalPlan",
+  "meta": {
+    "label": "Hypothesis",
+    "notes": "Dense+BM25 fused with Fuse_rrf(k=60). RRF formula Established (Cormack); plan packaging Hypothesis."
+  },
+  "capabilities": {
+    "hybridBm25Dense": true,
+    "rrfNative": true,
+    "vendorHints": ["qdrant", "elasticsearch", "milvus"]
+  },
+  "root": {
+    "id": "fuse0",
+    "op": "Fuse_rrf",
+    "k_rrf": 60,
+    "inputs": [
+      {
+        "id": "dense0",
+        "op": "Search_dense",
+        "k": 50,
+        "metric": "cosine",
+        "collection": "chunks",
+        "query": { "text": "portable retrieval IR for RAG", "channel": "dense", "vectorRef": "$q_dense" }
+      },
+      {
+        "id": "bm250",
+        "op": "Search_bm25",
+        "k": 50,
+        "collection": "chunks",
+        "query": { "text": "portable retrieval IR for RAG", "channel": "bm25" }
+      }
+    ]
+  }
+}

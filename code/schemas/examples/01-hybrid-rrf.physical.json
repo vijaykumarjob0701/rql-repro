@@ -1,0 +1,44 @@
+{
+  "schemaVersion": "0.1.0-draft",
+  "kind": "PhysicalPlan",
+  "meta": {
+    "label": "Hypothesis",
+    "logicalPlanRef": "examples/01-hybrid-rrf.logical.json",
+    "notes": "Native FusionExec rrf when capability rrfNative; else would wrap ShimCast client_rrf."
+  },
+  "budgets": {
+    "latencyMs": { "p95": 80 },
+    "aclSafe": true
+  },
+  "capabilitiesUsed": {
+    "hybridBm25Dense": true,
+    "rrfNative": true,
+    "vendorHints": ["qdrant"]
+  },
+  "root": {
+    "id": "fuse_exec0",
+    "op": "FusionExec",
+    "family": "rrf",
+    "k_rrf": 60,
+    "native": true,
+    "inputs": [
+      {
+        "id": "ann0",
+        "op": "AnnExec",
+        "k": 50,
+        "index": "hnsw",
+        "efSearch": 64,
+        "metric": "cosine",
+        "queryRef": "$q_dense",
+        "collection": "chunks"
+      },
+      {
+        "id": "bm25e0",
+        "op": "Bm25Exec",
+        "k": 50,
+        "queryText": "portable retrieval IR for RAG",
+        "collection": "chunks"
+      }
+    ]
+  }
+}

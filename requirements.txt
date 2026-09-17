@@ -1,0 +1,4 @@
+# Pinned for offline RQL compile-stack smoke (2026-09-17 Europe/Dublin)
+jsonschema==4.26.0
+pytest==8.3.5
+numpy==2.2.6

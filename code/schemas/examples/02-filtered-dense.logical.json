@@ -1,0 +1,28 @@
+{
+  "schemaVersion": "0.1.0-draft",
+  "kind": "LogicalPlan",
+  "meta": {
+    "label": "Hypothesis",
+    "notes": "Filter ∘ Search_dense with ACL-hard tenant predicate."
+  },
+  "capabilities": {
+    "filterAnnComposition": ["PRE", "POST", "ITERATIVE", "UNKNOWN"],
+    "vendorHints": ["weaviate", "pgvector", "elasticsearch"]
+  },
+  "root": {
+    "id": "filter0",
+    "op": "Filter",
+    "predicate": {
+      "expr": "tenant_id = 'acme' AND clearance >= 2",
+      "aclHard": true
+    },
+    "input": {
+      "id": "dense0",
+      "op": "Search_dense",
+      "k": 20,
+      "metric": "cosine",
+      "collection": "chunks",
+      "query": { "text": "ACL-safe filtered ANN", "channel": "dense", "vectorRef": "$q_dense" }
+    }
+  }
+}

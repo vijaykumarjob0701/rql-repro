@@ -1,0 +1,30 @@
+{
+  "kind": "RqlE2ERun",
+  "schemaVersion": "0.1.0-draft-e2e",
+  "label": "Hypothesis",
+  "notExecuted": true,
+  "liveDb": false,
+  "runId": "smoke",
+  "timestamp": "2026-09-17T00:10:55+01:00",
+  "timezone": "Europe/Dublin",
+  "inputs": "examples/toy",
+  "profiles": [
+    "qdrant",
+    "elasticsearch",
+    "pgvector"
+  ],
+  "bundled_profiles": [
+    "elasticsearch",
+    "pgvector",
+    "qdrant"
+  ],
+  "rql_files": [
+    "examples/toy/01-hybrid-rrf.rql",
+    "examples/toy/02-filtered-dense.rql",
+    "examples/toy/03-late.rql",
+    "examples/toy/04-hybrid-linear.rql"
+  ],
+  "validate": true,
+  "late_rewrite": null,
+  "honesty": "Offline E2E glue only: parse → LogicalPlan → plan(profile) → PhysicalPlan → emit(adapter sketches). No live vector-DB calls."
+}

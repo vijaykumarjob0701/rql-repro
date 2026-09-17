@@ -1,0 +1,20 @@
+{
+  "schemaVersion": "0.1.0-draft",
+  "kind": "LogicalPlan",
+  "meta": {
+    "label": "Hypothesis",
+    "notes": "Search_late leaf; physical compile may rewrite to PLAID when native MaxSim unavailable. MaxSim Established (ColBERT); PLAID mechanism Established; RQL packaging Hypothesis."
+  },
+  "capabilities": {
+    "multiVectorLate": false,
+    "latePlaid": true,
+    "vendorHints": ["custom-plaid-index"]
+  },
+  "root": {
+    "id": "late0",
+    "op": "Search_late",
+    "k": 10,
+    "collection": "passages_mv",
+    "query": { "text": "late interaction MaxSim", "channel": "late", "vectorRef": "$q_tok" }
+  }
+}
