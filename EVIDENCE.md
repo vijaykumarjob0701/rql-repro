@@ -37,3 +37,5 @@
 ## Recommendation (confirmed)
 
 Keep narrative in the research repo; use this companion for **registry + code + small fixtures**.
+
+**Update 2026-09-19:** Research-repo arXiv package at rag-vector-query-lang/arxiv/ (journal 0039). This companion remains code/data/results; FAISS run twin under results/fanns/sift1m_faiss_HNSW32_20260917_022017/. No fabricated metrics. No push.
